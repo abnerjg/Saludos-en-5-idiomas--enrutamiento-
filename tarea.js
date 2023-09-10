@@ -19,15 +19,20 @@ if (path === '/saludo') {
     const idiomas = ['Inglés', 'Español', 'Francés', 'Alemán', 'Italiano'];
     const saludoAleatorio = idiomas[Math.floor(Math.random() * idiomas.length)];
     res.end(`¡Hola! (Saludo en ${saludoAleatorio})`);
+
   } else if (path === '/desarrolladores') {
 
     // Información sobre los desarrolladores
     const desarrolladores = [
-      { nombre: 'Abner', edad: 33, ocupación: 'Desarrollador de Frontend' },
-      { nombre: 'Solange', edad: 30, ocupación: 'Desarrolladora de Backend' },
-      { nombre: 'Tomas', edad: 22, ocupación: 'Diseñador UX' },
+    { nombre: 'Abner', edad: 33, ocupación: 'Desarrollador de Frontend' },
+    { nombre: 'Solange', edad: 30, ocupación: 'Desarrolladora de Backend' },
+    { nombre: 'Tomas', edad: 22, ocupación: 'Diseñador UX' },
     ];
-    res.end(JSON.stringify(desarrolladores));
+   const respuestaJSON = JSON.stringify(desarrolladores, null, 2);
+
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.end(respuestaJSON);
+
   } else if (path === '/contar') {
     // Contar hasta el número 15
     let conteo = '';
