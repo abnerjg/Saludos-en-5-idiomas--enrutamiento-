@@ -23,9 +23,9 @@ if (path === '/saludo') {
 
     // Información sobre los desarrolladores
     const desarrolladores = [
-      { nombre: 'Abner', edad: 33, ocupacion: 'Desarrollador de Frontend' },
-      { nombre: 'Solange', edad: 30, ocupacion: 'Desarrolladora de Backend' },
-      { nombre: 'Tomas', edad: 22, ocupacion: 'Diseñador UX' },
+      { nombre: 'Abner', edad: 33, ocupación: 'Desarrollador de Frontend' },
+      { nombre: 'Solange', edad: 30, ocupación: 'Desarrolladora de Backend' },
+      { nombre: 'Tomas', edad: 22, ocupación: 'Diseñador UX' },
     ];
     res.end(JSON.stringify(desarrolladores));
   } else if (path === '/contar') {
