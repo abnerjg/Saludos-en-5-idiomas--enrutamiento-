@@ -2,13 +2,6 @@
 const http = require('http');
 const url = require('url');
 
-// Crea el servidor y escucha en el puerto 3000
-const server = http.createServer(routeHandler);
-const port = 3000;
-server.listen(port, () => {
-  console.log(`Servidor en ejecución en http://localhost:${port}`);
-});
-
 // Crea una función para manejar las rutas
 function routeHandler(req, res) {
   // Parsea la URL de la solicitud
@@ -18,7 +11,7 @@ function routeHandler(req, res) {
   const path = parsedUrl.pathname;
 
   // Configura las cabeceras de respuesta
-  res.setHeader('Content-Type', 'text/plain');
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
   
 // Maneja las rutas
 if (path === '/saludo') {
@@ -27,11 +20,12 @@ if (path === '/saludo') {
     const saludoAleatorio = idiomas[Math.floor(Math.random() * idiomas.length)];
     res.end(`¡Hola! (Saludo en ${saludoAleatorio})`);
   } else if (path === '/desarrolladores') {
+
     // Información sobre los desarrolladores
     const desarrolladores = [
       { nombre: 'Abner', edad: 33, ocupacion: 'Desarrollador de Frontend' },
-      { nombre: 'Solange', edad: 25, ocupacion: 'Desarrolladora de Backend' },
-      { nombre: 'Tomas', edad: 30, ocupacion: 'Diseñador UX' },
+      { nombre: 'Solange', edad: 30, ocupacion: 'Desarrolladora de Backend' },
+      { nombre: 'Tomas', edad: 22, ocupacion: 'Diseñador UX' },
     ];
     res.end(JSON.stringify(desarrolladores));
   } else if (path === '/contar') {
@@ -54,3 +48,4 @@ const port = 3000;
 server.listen(port, () => {
   console.log(`Servidor en ejecución en http://localhost:${port}`);
 });
+
